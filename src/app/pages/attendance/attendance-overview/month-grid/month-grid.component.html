@@ -1,0 +1,32 @@
+<!-- <div class="nebular-calendar col-md-6">
+<nb-card>
+    <nb-card-header>
+        <span>Attendance Event Calendar</span>
+      </nb-card-header>
+      <nb-card-body>
+    <h2>Selected date: {{ date2 | date }}</h2>
+    <nb-calendar
+      [(date)]="date2"
+      [dayCellComponent]="dayCellComponent"
+      [boundingMonth]="false"
+      size="large"
+      [showHeader]="false"
+    ></nb-calendar> 
+  </nb-card-body>
+</nb-card>
+</div> -->
+
+<div class="header">Attendance Event Calendar</div>
+
+<div class="body">
+
+    <h2>Selected date: {{ date2 | date }}</h2>
+    <nb-calendar
+      [(date)]="date2"
+      [dayCellComponent]="dayCellComponent"
+      [boundingMonth]="false"
+      size="large"
+      [showHeader]="false"
+    ></nb-calendar> 
+
+</div>

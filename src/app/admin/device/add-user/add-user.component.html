@@ -1,0 +1,340 @@
+<div class="col-md-12">
+  <nb-card>
+    <nb-card-header>
+      <span>Add New User</span>
+      <!-- <button nbButton status="success">Scan Hardware</button> -->
+    </nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <nb-card class="leftSide col-md-6">
+          <nb-card-body>
+            <form>
+              <div class="form-group row">
+                <label class="col-sm-3">Employee ID*</label>
+                <div class="col-sm-9">
+                  <input type="text" name="empId" [(ngModel)]="empid" nbInput fullWidth placeholder="Emp ID" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3">RFID</label>
+                <div class="has-search-icon row col-sm-9">
+                  <input type="text" name="rfId" [(ngModel)]="rfid" class="form-control" nbInput disabled />
+                  <button class="btn-search" type="submit" nbButton shape="rectangle" (click)="populateRfid()"
+                    [nbSpinner]="loadingRfid" nbSpinnerStatus="success" nbSpinnerSize="large" nbSpinnerMessage="">
+                    <i class="ion-search"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3">Fingerprint</label>
+                <div class="has-search-icon row col-sm-9">
+                  <input type="text" name="fingerId" [(ngModel)]="finger" class="form-control" nbInput fullWidth
+                    disabled />
+                  <button class="btn-search" type="submit" nbButton shape="rectangle" (click)="populateFinger()"
+                    [nbSpinner]="loadingFinger" nbSpinnerStatus="success" nbSpinnerSize="large" nbSpinnerMessage="">
+                    <i class="ion-search"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3">First Name*</label>
+                <div class="col-sm-9">
+                  <input type="text" name="fName" [(ngModel)]="firstName" nbInput fullWidth placeholder="First Name" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3">Last Name*</label>
+                <div class="col-sm-9">
+                  <input type="text" name="lName" [(ngModel)]="lastName" nbInput fullWidth placeholder="Last Name" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3">Email*</label>
+                <div class="col-sm-9">
+                  <input type="text" name="Email" [(ngModel)]="email" nbInput fullWidth placeholder="Email" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3">Phone 1</label>
+                <div class="col-sm-9">
+                  <input type="text" name="phoneNo1" [(ngModel)]="phone1" nbInput fullWidth placeholder="Phone 1" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3">Phone 2</label>
+                <div class="col-sm-9">
+                  <input type="text" name="phoneNo2" [(ngModel)]="phone2" nbInput fullWidth placeholder="Phone 2" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Date of Birth*</label>
+                <div class="col-sm-9">
+                  <input nbInput placeholder="DOB" [nbDatepicker]="dobPicker" name="dobField" [(ngModel)]="dob">
+                  <nb-datepicker #dobPicker></nb-datepicker>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Gender*</label>
+                <div class="col-sm-9">
+                  <!-- <div class="dropdown ghost-dropdown" ngbDropdown>
+                        <button type="button" class="btn-dropdown" shape = "rectangle" ngbDropdownToggle
+                                class="btn-success">
+                          {{ defaultGender }}
+                        </button>
+                        <ul ngbDropdownMenu class="dropdown-menu">
+                          <li class="dropdown-item"
+                              *ngFor="let t of genders"
+                              (click)="defaultGender = t">
+                            {{ t }}
+                          </li>
+                        </ul>
+                    </div> -->
+                  <nb-select placeholder="Select Gender" shape="rectangle" name="GenderSelect"
+                    [(ngModel)]="defaultGender">
+                    <nb-option *ngFor="let t of genders" [value]="t">{{ t }}</nb-option>
+                  </nb-select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3">Blood Group</label>
+                <div class="col-sm-9">
+                  <input type="text" name="bGroup" [(ngModel)]="bloodGroup" nbInput fullWidth
+                    placeholder="Enter here" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3">Address*</label>
+                <div class="col-sm-9">
+                  <textarea rows="5" name="addressField" [(ngModel)]="address" nbInput fullWidth shape="rectangle"
+                    placeholder="100 characters"></textarea>
+                </div>
+              </div>
+            </form>
+          </nb-card-body>
+        </nb-card>
+
+        <nb-card class="rightSide col-md-6">
+          <nb-card-body>
+            <form>
+
+              <div class="form-group row">
+                <label class="col-sm-3">City*</label>
+                <div class="col-sm-9">
+                  <input type="text" name="cityField" [(ngModel)]="city" nbInput fullWidth placeholder="City" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3">Country*</label>
+                <div class="col-sm-9">
+                  <input type="text" name="countryField" [(ngModel)]="country" nbInput fullWidth
+                    placeholder="Country" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3">Pincode</label>
+                <div class="col-sm-9">
+                  <input type="text" name="pincodeField" [(ngModel)]="pincode" nbInput fullWidth
+                    placeholder="Pincode" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3">Aadhar Number</label>
+                <div class="col-sm-9">
+                  <input type="text" name="aadharField" [(ngModel)]="aadharNo" nbInput fullWidth
+                    placeholder="Aadhar Number" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Employee Type*</label>
+                <div class="col-sm-9">
+                  <!-- <div class="dropdown ghost-dropdown" ngbDropdown>
+                            <button type="button" class="btn-dropdown" shape = "rectangle" ngbDropdownToggle
+                                    class="btn-success">
+                              {{ defaultType.name  }}
+                            </button>
+                            <ul ngbDropdownMenu class="dropdown-menu">
+                              <li class="dropdown-item"
+                                  *ngFor="let t of empTypes"
+                                  (click)="defaultType = t">
+                                {{ t.name }}
+                              </li>
+                            </ul>
+                        </div> -->
+                  <nb-select placeholder="Select Type" shape="rectangle" name="TypeSelect" [(ngModel)]="defaultType">
+                    <nb-option *ngFor="let t of empTypes" [value]="t">{{t.name}}</nb-option>
+                  </nb-select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Permissions*</label>
+                <div class="col-sm-9">
+                  <!-- <div class="dropdown ghost-dropdown" ngbDropdown>
+                            <button type="button" class="btn-dropdown" shape = "rectangle" ngbDropdownToggle
+                                    class="btn-success">
+                              {{ defaultPermissions.name  }}
+                            </button>
+                            <ul ngbDropdownMenu class="dropdown-menu">
+                              <li class="dropdown-item"
+                                  *ngFor="let t of permissions"
+                                  (click)="defaultPermissions = t">
+                                {{ t.name }}
+                              </li>
+                            </ul>
+                        </div> -->
+                  <nb-select placeholder="Select Permissions" shape="rectangle" name="PermissionSelect"
+                    [(ngModel)]="defaultPermissions">
+                    <nb-option *ngFor="let per of permissions" [value]="per">{{per.name}}</nb-option>
+                  </nb-select>
+                </div>
+              </div>
+
+              <!-- <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Account*</label>
+                <div class="col-sm-9">
+                   <div class="dropdown ghost-dropdown" ngbDropdown>
+                            <button type="button" class="btn-dropdown" shape = "rectangle" ngbDropdownToggle
+                                    class="btn-success">
+                              {{ defaultAccount.name  }}
+                            </button>
+                            <ul ngbDropdownMenu class="dropdown-menu">
+                              <li class="dropdown-item"
+                                  *ngFor="let t of accounts"
+                                  (click)="defaultAccount = t">
+                                {{ t.name }}
+                              </li>
+                            </ul>
+                        </div> 
+                  <nb-select placeholder="Select Account" shape="rectangle" name="AccountSelect"
+                    [(ngModel)]="defaultAccount">
+                    <nb-option *ngFor="let t of accounts" [value]="t">{{t.name}}</nb-option>
+                  </nb-select>
+                </div>
+              </div> -->
+
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Units*</label>
+                <div class="col-sm-9">
+                  <!-- <div class="dropdown ghost-dropdown" ngbDropdown>
+                            <button type="button" class="btn-dropdown" shape = "rectangle" ngbDropdownToggle
+                                    class="btn-success">
+                              {{ defaultUnit.name  }}
+                            </button>
+                            <ul ngbDropdownMenu class="dropdown-menu">
+                              <li class="dropdown-item"
+                                  *ngFor="let t of units"
+                                  (click)="defaultUnit = t">
+                                {{ t.name }}
+                              </li>
+                            </ul>
+                        </div> -->
+                  <nb-select placeholder="Select Unit" shape="rectangle" name="UnitSelect" [(ngModel)]="defaultUnit">
+                    <nb-option *ngFor="let unit of units" [value]="unit">{{unit.name}}</nb-option>
+                  </nb-select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Division*</label>
+                <div class="col-sm-9">
+                  <!-- <div class="dropdown ghost-dropdown" ngbDropdown>
+                            <button type="button" class="btn-dropdown" shape = "rectangle" ngbDropdownToggle
+                                    class="btn-success">
+                              {{ defaultDivision.name }}
+                            </button>
+                            <ul ngbDropdownMenu class="dropdown-menu">
+                              <li class="dropdown-item"
+                                  *ngFor="let t of divisions"
+                                  (click)="defaultDivision = t">
+                                {{ t.name }}
+                              </li>
+                            </ul>
+                        </div> -->
+                  <nb-select placeholder="Select Division" shape="rectangle" name="DivisionSelect"
+                    [(ngModel)]="defaultDivision">
+                    <nb-option *ngFor="let t of divisions" [value]="t">{{t.name}}</nb-option>
+                  </nb-select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Department*</label>
+                <div class="col-sm-9">
+                  <!-- <div class="dropdown ghost-dropdown" ngbDropdown>
+                            <button type="button" class="btn-dropdown" shape = "rectangle" ngbDropdownToggle
+                                    class="btn-success">
+                              {{ defaultDept.name  }}
+                            </button>
+                            <ul ngbDropdownMenu class="dropdown-menu">
+                              <li class="dropdown-item"
+                                  *ngFor="let t of depts"
+                                  (click)="defaultDept = t">
+                                {{ t.name }}
+                              </li>
+                            </ul>
+                        </div> -->
+                  <nb-select placeholder="Select Department" shape="rectangle" name="DeptSelect"
+                    [(ngModel)]="defaultDept">
+                    <nb-option *ngFor="let dept of depts" [value]="dept">{{dept.name}}</nb-option>
+                  </nb-select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Team*</label>
+                <div class="col-sm-9">
+                  <!-- <div class="dropdown ghost-dropdown" ngbDropdown>
+                            <button type="button" class="btn-dropdown" shape = "rectangle" ngbDropdownToggle
+                                    class="btn-success">
+                              {{ defaultTeam.name  }}
+                            </button>
+                            <ul ngbDropdownMenu class="dropdown-menu">
+                              <li class="dropdown-item"
+                                  *ngFor="let t of teams"
+                                  (click)="defaultTeam = t">
+                                {{ t.name }}
+                              </li>
+                            </ul>
+                        </div> -->
+                  <nb-select placeholder="Select Team" shape="rectangle" name="TeamSelect" [(ngModel)]="defaultTeam">
+                    <nb-option *ngFor="let team of teams" [value]="team">{{team.name}}</nb-option>
+                  </nb-select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Devices*</label>
+                <div class="col-sm-9">
+                  <nb-select multiple placeholder="Select Devices" shape="rectangle" name="DeviceSelect"
+                    [(ngModel)]="selectedDeviceList">
+                    <nb-option *ngFor="let device of devices" [value]="device">{{device.name}}</nb-option>
+                  </nb-select>
+                </div>
+              </div>
+
+            </form>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <button nbButton status="success" (click)="addUser()" [nbSpinner]="loadingUpdate" [disabled]="!isEnabled()" 
+        nbSpinnerStatus="success" nbSpinnerSize="large" nbSpinnerMessage="">Submit</button>
+    </nb-card-footer>
+  </nb-card>
+</div>

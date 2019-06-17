@@ -1,0 +1,40 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+    nb-card {
+        transform: translate3d(0, 0, 0);
+    }
+
+    nb-card-footer{
+        display:flex;
+        justify-content: center;
+    }
+
+    nb-select.internalList{
+        max-width: 198px;
+    }
+
+    .has-search-icon {
+        position: relative;
+        margin-left: 0px;
+        margin-right: 0px;
+    
+        .form-control {
+          padding-right: 5rem;
+        }
+    
+        .btn-search{
+          margin-left: -4.22rem;
+        }
+    }
+
+    div.form-group{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 1rem;
+    }
+
+    h5{
+      margin-top: 3rem;
+    }
+}

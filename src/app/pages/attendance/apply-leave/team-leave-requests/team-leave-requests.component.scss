@@ -1,0 +1,31 @@
+@import '../../../../@theme/styles/themes';
+
+@include nb-install-component() {
+    nb-card {
+        transform: translate3d(0, 0, 0);
+    }
+
+    nb-card-body{
+        padding: 0rem;
+    }
+    nb-tabset {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    
+      nb-tab {
+        padding: nb-theme(padding);
+      }
+    
+      /deep/ ngx-tab1, /deep/ ngx-tab2 {
+        display: block;
+        padding: nb-theme(padding);
+      }
+
+  div.buttons{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+  }
+}

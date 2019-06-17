@@ -1,0 +1,24 @@
+<nb-card>
+  <nb-card-header>Update User</nb-card-header>
+  <nb-card-body>
+  <ng2-smart-table [settings]="settings" [source] = "source" (userRowSelect)="onRowSelect($event)">
+  </ng2-smart-table>
+
+  <h5>Selected Employee</h5>
+  <div class="form-group row">
+    <input id = "empid" [(ngModel)] = "selectedEmpID" type="text" nbInput placeholder="Emp ID" disabled/>
+    <input type="text" [(ngModel)] = "selectedFirstName" nbInput placeholder="First Name" disabled/>
+    <input type="text" [(ngModel)] = "selectedLastName" nbInput  placeholder="Last Name" disabled/>
+    <div class="has-search-icon row">
+        <input type="text" [(ngModel)] = "newRfid" class = "form-control" nbInput disabled placeholder="Scan RFID"/>
+        <button class="btn-search" type="submit" nbButton shape="rectangle" (click)="populateRfid()"
+        [nbSpinner]="loading" nbSpinnerStatus="success" nbSpinnerSize="large" nbSpinnerMessage="">
+            <i class="ion-search"></i>
+        </button>
+    </div>                   
+  </div>
+  </nb-card-body>
+  <nb-card-footer>
+      <button nbButton status="info" [disabled]="!isEnabled()" (click) = "onUpdateClick()">Update</button>
+  </nb-card-footer>
+  </nb-card>

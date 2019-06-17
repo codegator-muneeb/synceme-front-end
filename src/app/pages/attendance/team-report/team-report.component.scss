@@ -1,0 +1,40 @@
+@import '../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+@include nb-install-component() {
+
+  nb-card-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    // padding: 0.675rem 0.5rem 0.5rem 1.25rem;
+  }
+
+  input{
+    margin-left: 1rem;
+  }
+  button{
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  nb-select{
+    min-width: 16rem;
+    max-width: 16rem;
+  }
+
+  div.form-group-wrapper{
+    display: flex;
+    justify-content: center;
+  }
+
+  div.form-group{
+    width: 78%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+} 

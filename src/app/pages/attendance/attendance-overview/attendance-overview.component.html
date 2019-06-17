@@ -1,0 +1,98 @@
+<!-- <nb-card class = "calendar" [size]="breakpoint.width >= breakpoints.sm ? 'large' : 'medium'">
+        <i (click)="collapse()" class="nb-arrow-down collapse" [hidden]="isCollapsed()"></i>
+        <ngx-calendar></ngx-calendar>
+        <ngx-legend [collapsed]="isCollapsed() && breakpoint.width <= breakpoints.md"></ngx-legend>
+</nb-card>
+
+<nb-card>
+    <nb-card-header>
+        <span>Monthly Distribution</span>
+        <div class="dropdowns">
+        <div class="dropdown ghost-dropdown" ngbDropdown>
+            <button type="button" class="btn-dropdown" shape = "semi-round" ngbDropdownToggle
+                    [ngClass]="{ 'btn-success': currentTheme === 'default', 'btn-primary': currentTheme !== 'default'}">
+                {{ default_month }}
+            </button>
+            <ul ngbDropdownMenu class="dropdown-menu">
+                <li class="dropdown-item"
+                    *ngFor="let t of months"
+                    (click)="default_month = t">
+                {{ t }}
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown ghost-dropdown" ngbDropdown>
+                <button type="button" class="btn-dropdown" shape = "semi-round" ngbDropdownToggle
+                        [ngClass]="{ 'btn-success': currentTheme === 'default', 'btn-primary': currentTheme !== 'default'}">
+                    {{ default_year }}
+                </button>
+                <ul ngbDropdownMenu class="dropdown-menu">
+                    <li class="dropdown-item"
+                        *ngFor="let t of availableYears"
+                        (click)="default_year = t">
+                    {{ t }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body>
+        <ngx-echarts-pie></ngx-echarts-pie> 
+    </nb-card-body>
+</nb-card> -->
+
+<!-- Make shift attendance overview component -->
+
+
+<!-- <ngx-emp-daily-report></ngx-emp-daily-report> -->
+<nb-card>
+    <nb-card-header>
+        <span>Comprehensive Daily Report</span>
+    </nb-card-header>
+    <nb-card-body>
+
+        <div class="form-group-wrapper">
+            <div class="form-group row">
+                <label for="datePicker" class="col-sm-3 col-form-label">Choose Date</label>
+                <input nbInput id="datePicker" placeholder="Date" [nbDatepicker]="aodPicker" name="asOfDate"
+                    [(ngModel)]="asOfDate">
+                <nb-datepicker #aodPicker></nb-datepicker>
+
+                <button nbButton status="success" (click)="load()" [disabled]="!isEnabled()" [nbSpinner]="loading"
+                    nbSpinnerStatus="success" nbSpinnerSize="large" nbSpinnerMessage="" size="xsmall">Load</button>
+                <button nbButton status="success" (click)="export()" [disabled]="!isExportEnabled()"
+                    size="xsmall">Export</button>
+            </div>
+        </div>
+
+        <ng2-smart-table [settings]="settings" [source]="source">
+        </ng2-smart-table>
+
+    </nb-card-body>
+</nb-card>
+
+<nb-card>
+    <nb-card-header>
+        <span>Over a Period Report</span>
+    </nb-card-header>
+    <nb-card-body>
+
+        <div class="form-group-wrapper">
+            <div class="form-group row">
+                <label for="rangePicker" class="col-sm-3 col-form-label">Choose a range</label>
+                <input nbInput id="rangePicker" placeholder="Date Range" [nbDatepicker]="rangePicker" name="asOfRange"
+                    [(ngModel)]="asOfRange">
+                <nb-rangepicker #rangePicker></nb-rangepicker>
+
+                <button nbButton status="success" (click)="loadOAP()" [disabled]="!isEnabledOAP()"
+                    [nbSpinner]="loadingFlagForOAP" nbSpinnerStatus="success" nbSpinnerSize="large" nbSpinnerMessage=""
+                    size="xsmall">Load</button>
+                <button nbButton status="success" size="xsmall" [disabled]="!isExportEnabledOAP()" (click)="exportOAP()">Export</button>
+            </div>
+        </div>
+
+        <ng2-smart-table [settings]="settingsOAP" [source]="sourceOAP">
+        </ng2-smart-table>
+
+    </nb-card-body>
+</nb-card>

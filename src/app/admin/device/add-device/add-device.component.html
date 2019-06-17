@@ -1,0 +1,68 @@
+<div class = "row">
+    <div class = "col-md-6">
+        <nb-card>
+          <nb-card-header>Enable/Disable/Reset Device</nb-card-header>
+          <nb-card-body>
+              <div class="form-group row">
+                  <label for = "dList" class="col-sm-3 col-form-label">Device Name</label>
+                  <div class="col-sm-9" id = "dList">
+                    <nb-select placeholder="Select Type" shape = "rectangle" [(ngModel)] = "selectedDeviceForEDR">
+                        <nb-option *ngFor="let device of regDeviceList" [value] = "device">{{device.name}}</nb-option>
+                    </nb-select>
+                  </div>
+              </div>
+          </nb-card-body>
+          <nb-card-footer class = "enable">
+              <button nbButton status="info" [disabled] = "!enableEDR()" (click) = "enable(true)">Enable</button>
+              <button nbButton status="danger" [disabled] = "!enableEDR()" (click) = "enable(false)">Disable</button>
+              <button nbButton status="success" [disabled] = "!enableEDR()" (click) = "reset()">Reset</button>
+          </nb-card-footer>
+        </nb-card>
+      </div>
+
+  <div class = "col-md-6">
+    <nb-card>
+      <nb-card-header>Register Device</nb-card-header>
+      <nb-card-body>
+          <div class="form-group row">
+              <label for = "dList" class="col-sm-3 col-form-label">Device Name</label>
+              <div class="col-sm-9" id = "dList">
+                <nb-select placeholder="Select Type" shape = "rectangle" [(ngModel)] = "deviceToRegister">
+                    <nb-option *ngFor="let unregDevice of unregDeviceList" [value] = "unregDevice">{{unregDevice.name}}</nb-option>
+                </nb-select>
+              </div>
+          </div>
+      </nb-card-body>
+      <nb-card-footer>
+          <button nbButton status="info" [disabled] = "!enableRegsiter()" (click) = "register()">Register</button>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>
+
+<div class = "row">
+  <div class = "col-md-6">
+      <nb-card>
+        <nb-card-header>Add Device</nb-card-header>
+        <nb-card-body>
+            <div class="form-group row">
+                <label for = "did" class="col-sm-3">Device ID</label>
+                <div class="col-sm-9">
+                    <input  id = "did" [(ngModel)] = "deviceAddId" type="text" nbInput fullWidth placeholder="Device ID"/>
+                </div>                    
+            </div>
+
+            <div class="form-group row">
+                <label for = "alias" class="col-sm-3">Alias</label>
+                <div class="col-sm-9">
+                    <input id = "alias" [(ngModel)] = "deviceAddName" type="text" nbInput fullWidth placeholder="Alias"/>
+                </div>                    
+            </div>
+
+        </nb-card-body>
+        <nb-card-footer>
+            <button nbButton status="info" [disabled] = "!enableSubmit()" (click)="addDevice()">Submit</button>
+        </nb-card-footer>
+      </nb-card>
+  </div>
+</div>

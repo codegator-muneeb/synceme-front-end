@@ -1,0 +1,40 @@
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12">   
+    <nb-card-body>      
+      <nb-stepper orientation="horizontal" [linear] = "true">   
+        
+        <nb-step [label]="labelOne" [stepControl]="requestForm">
+          <ng-template #labelOne>Request</ng-template>
+          <form>
+          </form>
+        </nb-step>
+
+
+
+        <!-- <nb-step [label]="labelOne">
+          <ng-template #labelOne>Request</ng-template>
+          <ngx-display></ngx-display>
+        </nb-step>
+        <nb-step [label]="labelTwo">
+          <ng-template #labelTwo>Review and Send</ng-template>
+          <ngx-review></ngx-review>
+        </nb-step>
+        <nb-step label="Finish">
+            <ngx-finish></ngx-finish>
+        </nb-step> -->
+      </nb-stepper>
+
+      <div class="col-md-12">
+        <div class="form-group row">
+            <div class="col-md-4">
+              <button type="submit" class="btn btn-primary" disabled>Previous Step</button>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">Review</button>
+            </div>
+            <div class="col-md-4">
+                  <button type="submit" class="btn btn-primary">Cancel</button>
+            </div>
+        </div>
+      </div>
+    </nb-card-body>
+</nb-card>

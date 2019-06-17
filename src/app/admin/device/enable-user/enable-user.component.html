@@ -1,0 +1,49 @@
+<nb-card>
+    <nb-card-header>Modify User</nb-card-header>
+    <nb-card-body>
+
+        <nb-stepper orientation="horizontal" disableStepNavigation>
+            <nb-step label="Select User">
+                <ng-template #labelOne>Select Employees</ng-template>
+                <nb-card class="innerCard">
+                    <nb-card-body>
+                        <ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="onRowSelect($event)">
+                        </ng2-smart-table>
+                        <div class="selectedUsers row">
+                            <label for="display" class="col-sm-3">Selected Users</label>
+                            <div class="col-sm-9" id="display">
+                                <span *ngFor="let row of selectedRows">{{row.empid}}, </span>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                    <nb-card-footer>
+                        <button nbButton nbStepperPrevious disabled>prev</button>
+                        <button nbButton nbStepperNext (click)="createDeviceFields()">next</button>
+                    </nb-card-footer>
+                </nb-card>
+
+            </nb-step>
+            <nb-step label="Add Devices">
+                <ng-template #labelTwo>Add Devices</ng-template>
+                <nb-card class="innerCard">
+                    <nb-card-body>
+                        <div class="form-group row" *ngFor="let row of selectedRows">
+                            <label class="col-sm-3 col-form-label">Employee Id: {{row.empid}}</label>
+                            <nb-select multiple placeholder="Select Devices" shape="rectangle" name="DeviceSelect"
+                                [(ngModel)]="row.selectedDevices">
+                                <nb-option *ngFor="let device of row.devices" [value]="device">{{device.name}}</nb-option>
+                            </nb-select>
+                        </div>
+                    </nb-card-body>
+                    <nb-card-footer>
+                        <button nbButton nbStepperPrevious>Prev</button>
+                        <button nbButton status="danger" (click) = "onDeleteClick()">Delete</button>
+                        <button nbButton status="success" (click) = "onEnableClick()">Enable</button>
+                        <button nbButton status="info" (click)="onDisableClick()">Disable</button>
+                    </nb-card-footer>
+                </nb-card>
+
+            </nb-step>
+        </nb-stepper>
+    </nb-card-body>
+</nb-card>

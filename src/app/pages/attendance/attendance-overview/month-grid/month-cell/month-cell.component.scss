@@ -1,0 +1,27 @@
+@import '../../../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  text-align: center;
+  //background-color: rgba(235, 84, 74, 0.2);
+  // min-width: 50px;
+  min-height: 3.7rem;
+
+  div.cell{
+    width: 80%;
+  }
+
+  span.category{
+    float:left;
+    text-align: center;
+    width: 50%;
+    font-size: 70%;
+    opacity: 0.75;
+  }
+  span.hours {
+    float: right;
+    text-align: center;
+    width: 50%;
+    font-size: 70%;
+    opacity: 0.75;
+  }
+}

@@ -1,0 +1,92 @@
+@import '../../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/components/card/card.component.theme';
+@import '~@nebular/theme/styles/core/mixins';
+
+@include nb-install-component() {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  .header {
+    @include nb-card-header();
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  nb-tabset {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  nb-tab {
+    padding: nb-theme(padding);
+  }
+
+  /deep/ ngx-tab1, /deep/ ngx-tab2 {
+    display: block;
+    padding: nb-theme(padding);
+  }
+
+  @include media-breakpoint-down(xs) {
+    nb-tabset /deep/ul {
+      font-size: 1rem;
+      padding: 0 0.25rem;
+    }
+  }
+
+  .contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: nb-theme(color-fg);
+    padding: 1rem;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid nb-theme(separator);
+
+      @include nb-for-theme(corporate) {
+        border-bottom-color: nb-theme(tabs-separator);
+      }
+    }
+  }
+
+  .long {
+    font-size: 0.875rem;
+    font-weight: nb-theme(font-weight-bold);
+    text-transform: uppercase;
+  }
+
+  nb-user /deep/ {
+    .info-container {
+      @include nb-ltr(margin-left, 0.875rem);
+      @include nb-rtl(margin-right, 0.875rem);
+    }
+
+    .user-name {
+      font-family: nb-theme(font-secondary);
+      font-weight: nb-theme(font-weight-bold);
+      color: nb-theme(color-fg-heading);
+      font-size: 1.25rem;
+
+      @include nb-for-theme(cosmic) {
+        font-weight: nb-theme(font-weight-bolder);
+      }
+    }
+
+    .user-title {
+      font-size: 0.875rem;
+      font-weight: nb-theme(font-weight-light);
+      text-transform: uppercase;
+    }
+  }
+  
+}

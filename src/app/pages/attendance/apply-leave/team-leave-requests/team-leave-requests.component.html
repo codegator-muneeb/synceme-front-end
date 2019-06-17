@@ -1,0 +1,23 @@
+<nb-card>
+  <nb-card-header>Team Leave Requests</nb-card-header>
+  <nb-card-body>
+      <nb-tabset fullWidth>
+          <nb-tab tabTitle="Pending Approval">
+              <ng2-smart-table [settings]="settings" [source] = "sourcePending" (userRowSelect)="onRowSelect($event)">
+              </ng2-smart-table>
+              <div class = "buttons row">
+                <button nbButton status="info" [disabled]="!isEnabled()" (click)="approve()">Approve</button>
+                <button nbButton status="danger" [disabled]="!isEnabled()" (click)="reject()">Reject</button>
+              </div>
+          </nb-tab>
+          <nb-tab tabTitle="Approved">
+              <ng2-smart-table [settings]="settings" [source] = "sourceAccepted">
+              </ng2-smart-table>
+          </nb-tab>
+          <nb-tab tabTitle="Rejected">
+                <ng2-smart-table [settings]="settings" [source] = "sourceRejected">
+                </ng2-smart-table>
+          </nb-tab>
+      </nb-tabset>
+  </nb-card-body>
+</nb-card>

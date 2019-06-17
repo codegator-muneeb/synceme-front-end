@@ -1,0 +1,60 @@
+<!-- (click)="selectedDevice = device"  value = "{{device.deviceId}}"-->
+<div class = "row">
+  <div class = "col-md-6">
+  <nb-card>
+    <nb-card-header>Device Status</nb-card-header>
+    <nb-card-body>
+        <div class="form-group row">
+            <label for = "dList" class="col-sm-3 col-form-label">Device Name</label>
+            <div class="col-sm-9" id = "dList">
+              <!-- <select placeholder="Select Type" shape = "rectangle" [(ngModel)] = "selectedDevice">
+                  <option *ngFor="let device of deviceList" [value]="device">{{device.name}}<option>
+              </select> -->
+                <nb-select placeholder="Select Type" shape = "rectangle" [(ngModel)] = "selectedDevice">
+                    <nb-option *ngFor="let device of deviceList" [value]="device">{{ device.name }}</nb-option>
+                </nb-select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for = "statusLabel" class="col-sm-3">Status</label>
+            <div class="col-sm-9">
+                <textarea  rows="8" nbInput fullWidth shape="rectangle" disabled [(ngModel)] = "status"></textarea>
+            </div>                    
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <button nbButton status="info" (click) = "getStatus()" [disabled]="!isEnabled()">Get Status</button>
+    </nb-card-footer>
+  </nb-card>
+  </div>
+
+  <div class = "col-md-6">
+      <nb-card>
+        <nb-card-header>Sync Device Data</nb-card-header>
+        <nb-card-body>
+            <div class="form-group row">
+                <label for = "dList" class="col-sm-3 col-form-label">From</label>
+                <div class="col-sm-9" id = "dList">
+                        <nb-select placeholder="Select Type" shape = "rectangle" [(ngModel)] = "fromSelectedDevice">
+                                <nb-option *ngFor="let device of deviceList" [value]="device">{{ device.name }}</nb-option>
+                            </nb-select>      
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for = "dList" class="col-sm-3 col-form-label">To</label>
+                <div class="col-sm-9" id = "dList">
+                        <nb-select multiple placeholder="Select Type" shape = "rectangle" [(ngModel)] = "toSelectedDevice">
+                                <nb-option *ngFor="let device of deviceList" [value]="device">{{ device.name }}</nb-option>
+                        </nb-select>
+                </div>
+            </div>
+    
+        </nb-card-body>
+        <nb-card-footer>
+            <button nbButton status="info">Sync</button>
+        </nb-card-footer>
+      </nb-card>
+      </div>
+</div>

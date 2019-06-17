@@ -1,0 +1,21 @@
+@import '../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+@include nb-install-component() {
+    .form-group{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    nb-card-footer{
+        display: flex;
+        justify-content: center;
+    }
+
+    nb-card-footer.enable{
+        display: flex;
+        justify-content: space-around;
+    }
+}

@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-6">
+    <nb-card>
+      <nb-card-header>Daily Attendance Report</nb-card-header>
+      <nb-card-body>
+        <div class="form-group row">
+          <label for="datePicker" class="col-sm-3 col-form-label">Choose Date</label>
+          <div class="col-sm-9" id="datePicker">
+            <input nbInput placeholder="Date" fullWidth [nbDatepicker]="asofDate" name="dobField"
+              [(ngModel)]="asOfDate">
+            <nb-datepicker #asofDate></nb-datepicker>
+          </div>
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton status="success" (click)="generate()" [nbSpinner]="spinnerFlag" [disabled]="!isEnabled()"
+          nbSpinnerStatus="success" nbSpinnerSize="large" nbSpinnerMessage="">Generate</button>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+
+  <div class="col-md-6">
+    <nb-card>
+      <nb-card-header>Comprehensive Report</nb-card-header>
+      <nb-card-body>
+        <div class="form-group row">
+          <label for="datePicker" class="col-sm-3 col-form-label">Choose Date</label>
+          <div class="col-sm-9" id="datePicker">
+            <input nbInput placeholder="Date" fullWidth [nbDatepicker]="asofDate" name="dobField"
+              [(ngModel)]="asOfDate">
+            <nb-datepicker #asofDate></nb-datepicker>
+          </div>
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton status="success" (click)="generate()" [nbSpinner]="spinnerFlag" [disabled]="!isEnabled()"
+          nbSpinnerStatus="success" nbSpinnerSize="large" nbSpinnerMessage="">Generate</button>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<nb-card>
+    <nb-card-header>
+        <span>Team Attendance Overview</span>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="form-group-wrapper">
+            <div class="form-group row">
+
+                <nb-select multiple placeholder="Select Employee" shape="rectangle" name="DeviceSelect"
+                    [(ngModel)]="selectedEmp">
+                    <nb-option *ngFor="let emp of empUnderManager" [value]="emp">{{emp.firstName}} {{emp.lastName}}
+                    </nb-option>
+                </nb-select>
+
+                <input nbInput placeholder="Date Range" size="xsmall" [nbDatepicker]="aodPicker" name="asOfDate"
+                    [(ngModel)]="asOfDate">
+                <nb-rangepicker #aodPicker></nb-rangepicker>
+
+                <button nbButton status="success" (click)="load()" [disabled]="!isEnabled()" [nbSpinner]="loading"
+                    nbSpinnerStatus="success" nbSpinnerSize="large" nbSpinnerMessage="" size="xsmall">Load</button>
+                <button nbButton (click)="export()" [disabled]="!isExportEnabled()" size="xsmall">Export</button>
+            </div>
+        </div>
+        <ng2-smart-table [settings]="settings" [source]="source">
+        </ng2-smart-table>
+
+    </nb-card-body>
+</nb-card>

@@ -1,0 +1,8 @@
+<div class = "cell">
+  <div #date>{{ day }}</div>
+  <span class="category" name="cat" [style.visibility] = "!date.innerHTML.trim() ? 'hidden': 'visible'">PL</span>
+  <span class = "hours" name = "hours"  [style.visibility] = "!date.innerHTML.trim() ? 'hidden': 'visible'">{{day*10/30}}h</span>  
+</div>
+
+<!-- [style.visibility] = "!date.innerHTML.trim() ? 'hidden': 'visible'"
+[style.visibility] = "!date.innerHTML.trim() ? 'hidden': 'visible'" -->

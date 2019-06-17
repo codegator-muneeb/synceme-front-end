@@ -1,0 +1,17 @@
+<div class="col-md-12">
+  <nb-card>
+    <nb-card-header>Update Wifi</nb-card-header>
+    <nb-card-body>
+        <div class="form-group row">
+              <nb-select multiple placeholder="Select Devices" shape = "rectangle" [(ngModel)] = "selectedDevices">
+                  <nb-option *ngFor="let device of devices" [value] = "device">{{device.name}}</nb-option>
+              </nb-select>
+              <input type="text" [(ngModel)] = "ssid" nbInput placeholder="SSID"/>
+              <input type="password" [(ngModel)] = "password" nbInput placeholder="Password"/>
+          </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <button nbButton status="success" (click) = "update()" [disabled]="!isEnabled()">Update</button>
+    </nb-card-footer>
+  </nb-card>
+</div>

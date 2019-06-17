@@ -1,0 +1,18 @@
+<nb-card>
+    <nb-card-header>Choose Approver</nb-card-header>
+    <nb-card-body>
+      <form class="form-inline">
+        <input #name nbInput class="form-control full-width" fieldSize="small" placeholder="Last Name">
+        <label for="empID">OR</label>
+        <input #name nbInput class="form-control full-width" id="empID" fieldSize="small" placeholder="Employee ID">
+        <label for="uName">OR</label>
+        <input #name nbInput class="form-control full-width" id = "uName" fieldSize="small" placeholder="User Name">
+        <button nbButton size="small" type="submit">Search</button>
+      </form>
+      <ngx-table></ngx-table>
+    </nb-card-body>
+    <nb-card-footer>
+      <button nbButton status="danget" (click)="cancel()">Cancel</button>
+      <button nbButton status="success" (click)="submit(name.value)">Submit</button>
+    </nb-card-footer>
+</nb-card>

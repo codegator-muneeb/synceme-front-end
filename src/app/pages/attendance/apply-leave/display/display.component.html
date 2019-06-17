@@ -1,0 +1,81 @@
+<div class = "row">
+    <div class="col-md-8 offset-md-2">
+          <nb-card>
+            <nb-card-body>                
+              <form>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-form-label">To apply for leave, enter details and click on Review.</label>
+                </div>
+                <div class="form-group row">
+                  <label for="inputEmail1" class="col-sm-3 col-form-label">Type Of Leave</label>
+                  <div class="col-sm-9">
+                      <div class="dropdown ghost-dropdown" ngbDropdown>
+                          <button type="button" class="btn-dropdown" shape = "rectangle" ngbDropdownToggle
+                                  class="btn-success">
+                            {{ default }}
+                          </button>
+                          <ul ngbDropdownMenu class="dropdown-menu">
+                            <li class="dropdown-item"
+                                *ngFor="let t of leaves"
+                                (click)="default = t">
+                              {{ t }}
+                            </li>
+                          </ul>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="inputPassword2" class="col-sm-3 col-form-label">Date</label>
+                  <div class="col-sm-4">
+                      <input nbInput
+                      placeholder="From"
+                      [nbDatepicker]="formpickerFrom">
+                      <nb-datepicker #formpickerFrom></nb-datepicker>
+                  </div>
+                  <div class="col-sm-4 offset-sm-1">
+                      <input nbInput
+                      placeholder="To"
+                      [nbDatepicker]="formpickerTo">
+                      <nb-datepicker #formpickerTo></nb-datepicker>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3">Time</label>
+                  <div class="col-sm-4">
+                      <input type="text" nbInput fullWidth placeholder="From" disabled/>
+                  </div>
+                  <div class="col-sm-4 offset-sm-1">
+                      <input type="text" nbInput fullWidth placeholder="To" disabled/>
+                  </div>                    
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3">No. Of Days</label>
+                    <div class="col-sm-9">
+                        <input type="text" nbInput fullWidth placeholder="Days" disabled/>
+                    </div>                    
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3">Approver</label>
+                    <div class="has-search-icon row col-sm-9">                    
+                        <input type="search" placeholder="Approver" class="form-control" disabled/>
+                        <button class="btn-search" type="submit" nbButton shape="rectangle" (click)="openApproverDialog()">
+                            <i class="ion-search"></i>
+                        </button>
+                </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3">Note for approver</label>
+                    <div class="col-sm-9">
+                        <textarea rows="5" nbInput fullWidth shape="rectangle"  placeholder="Enter Here..."></textarea>
+                    </div>                    
+                </div>
+              </form>
+            </nb-card-body>
+          </nb-card>
+      </div>
+</div>

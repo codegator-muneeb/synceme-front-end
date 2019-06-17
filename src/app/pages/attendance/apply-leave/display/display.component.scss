@@ -1,0 +1,64 @@
+@import '../../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+@include nb-install-component() {
+
+  nb-card{
+    border: 0px;
+  }
+
+  .has-search-icon {
+    position: relative;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    .form-control {
+      padding-right: 5rem;
+    }
+
+    .btn-search{
+      margin-left: -5rem;
+    }
+  }
+
+  label{
+    font-size: 1rem;
+    display: block;
+    align-content: center;
+  }
+  
+  .row {
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+  }
+
+  .input-group {
+    margin-bottom: 1rem;
+  }
+
+  .title{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .dropdown {
+    min-width: 120px;
+    min-height: 40px;
+    //border: 2px solid rgb(218, 223, 230);
+
+    .btn-primary{
+      min-height: 40px;
+      margin-left: 0rem;
+      margin-right: 0rem;
+      border: 2px solid rgb(218, 223, 230);
+    }
+  }
+
+  input {
+    width: 100%;
+  }
+
+  
+}

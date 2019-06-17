@@ -1,0 +1,32 @@
+<nb-card class="col-md-12">
+  <nb-card-header>Assign a Manager</nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="mList" class="col-sm-3 col-form-label">Manager*</label>
+          <div class="col-sm-9" id="mList">
+            <nb-select placeholder="Select a Manager" shape="rectangle" (selectedChange)="disableOption()" [(ngModel)]="selectedManager" #managerList>
+              <nb-option *ngFor="let manager of listOfManagers" [value]="manager">{{manager.firstName}}
+                {{manager.lastName}}
+              </nb-option>
+            </nb-select>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="eList" class="col-sm-3 col-form-label">Employees*</label>
+          <div class="col-sm-9" id="eList">
+            <nb-select multiple #empList placeholder="Select his Employees" shape="rectangle" [(ngModel)]="selectedEmp">
+              <nb-option *ngFor="let emp of listOfEmp" attr.id = "{{emp.empId}}" [value]="emp">{{emp.firstName}} {{emp.lastName}}</nb-option>
+            </nb-select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+      <button nbButton status="info" [disabled] = "!enabled()" (click)="assign()">Assign</button>
+  </nb-card-footer>
+</nb-card>

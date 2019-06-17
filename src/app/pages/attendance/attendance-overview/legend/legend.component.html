@@ -1,0 +1,40 @@
+
+    <!-- <nb-card size="small">
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Legend">
+            <div class="contact"  *ngFor="let item of legend">
+                <nb-user [name]="item.color">
+                </nb-user>
+                <span class="long">{{item.value | uppercase}}</span>
+            </div>
+        </nb-tab>
+        <nb-tab tabTitle="Abbreviations">
+            <div class="contact" *ngFor="let item of abbreviations">
+                  <nb-user [name]="item.short">
+                  </nb-user>
+                  <span class="long">{{item.long | uppercase}}</span>
+                </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card> -->
+
+<div class = "body">
+
+    <nb-tabset fullWidth>
+        <nb-tab tabTitle="Legend">
+            <div class="contact"  *ngFor="let item of legend">
+                <nb-user [name]="item.value" [picture]="item.picture">
+                </nb-user>
+                <!-- <span class="long">{{item.value | uppercase}}</span> -->
+            </div>
+        </nb-tab>
+        <nb-tab tabTitle="Abbreviations">
+            <div class="contact" *ngFor="let item of abbreviations">
+                  <nb-user [name]="item.short">
+                  </nb-user>
+                  <span class="long">{{item.long | uppercase}}</span>
+                </div>
+        </nb-tab>
+      </nb-tabset>
+
+</div>

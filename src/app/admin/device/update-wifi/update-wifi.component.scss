@@ -1,0 +1,23 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+    div.form-group {
+        display:flex;
+        justify-content: space-around;
+    }
+
+    nb-select{
+        min-width: 300px;
+        max-width: 300px;
+    }
+
+    nb-card-footer{
+        display:flex;
+        justify-content: center;
+    }
+
+    nb-select,
+    input{
+        margin-bottom: 1rem;
+    }
+}

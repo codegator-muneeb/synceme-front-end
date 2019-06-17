@@ -1,0 +1,135 @@
+@import '../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+@include nb-install-component() {
+
+  nb-card-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // padding: 0.675rem 0.5rem 0.5rem 1.25rem;
+  }
+
+  // ngx-calendar {
+  //   width: 70%;
+  //   border-right: 2px solid nb-theme(separator);
+  //   min-height: 42rem;
+
+  //   @include nb-for-theme(corporate) {
+  //     border-right-color: nb-theme(tabs-separator);
+  //   }
+  // }
+
+  // ngx-legend {
+  //   width: 30%;
+  //   min-height: 20rem;
+  // }
+
+  // nb-card.calendar {
+  //   display: flex;
+  //   flex-direction: row;
+  //   min-height: 610px;
+  // }
+
+  // ngx-calendar {
+  //   display: flex;
+  //   flex-direction: column;
+  //   flex: 1;
+  //   padding: 1.5rem;
+  //   padding-top: 0.5rem;
+
+  //   /deep/ .room-selector {
+  //     display: flex;
+  //     align-items: center;
+  //     justify-items: center;
+  //     flex: 1;
+  //     margin: 0 auto;
+  //     width: 90%;
+  //     max-width: 650px;
+  //     padding-bottom: 1rem;
+  //   }
+  // }
+
+  // @include media-breakpoint-down(md) {
+  //   &.expanded ngx-calendar {
+  //     display: none;
+  //   }
+
+  //   ngx-calendar, ngx-legend {
+  //     width: 100%;
+  //     border: none;
+  //   }
+
+  //   nb-card.calendar {
+  //     flex-direction: column;
+  //     justify-content: space-between;
+  //     min-height: 64rem;
+
+  //     .collapse {
+  //       display: inline-block;
+  //       position: absolute;
+  //       top: 0.5rem;
+  //       left: 50%;
+  //       transform: translateX(-50%);
+  //       font-size: 3rem;
+  //       color: nb-theme(color-fg);
+
+  //       &:focus {
+  //         outline: none;
+  //       }
+  //     }
+  //   }
+  // }
+
+  // ngx-echarts-pie{
+  //   display: block;
+  //   height: nb-theme(card-height-medium);
+  //   width: 100%;
+  // }
+
+  // /deep/ .echart {
+  //   height: 100%;
+  //   width: 100%;
+  // }
+
+  // .dropdown {
+  //   min-width: 80px;
+
+  //   .btn-primary{
+  //     margin-left: 0rem;
+  //     margin-right: 0rem;
+  //     // border: 2px solid rgb(218, 223, 230);
+  //   }
+  // }
+
+  // div.dropdowns{
+  //   display: flex;
+  //   flex-direction: row;
+  //   align-items: center;
+  //   justify-content: space-between;
+    
+  // }
+
+  nb-card-body{
+    align-items: center;
+  }
+
+  div.form-group-wrapper{
+    display: flex;
+    justify-content: center;
+  }
+
+  div.form-group{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  button{
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+} 
